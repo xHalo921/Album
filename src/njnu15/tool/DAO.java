@@ -52,4 +52,20 @@ public class DAO {
         }
         return list;
     }
+
+    public static String findFistPhoto(int albumId){
+        String placeholder="D:/";
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "SELECT * FROM photo WHERE AlbumId='"+ albumId +"'";
+            Statement stmt=conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()){
+                return rs.getString("PhotoURL");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return placeholder;
+    }
 }
