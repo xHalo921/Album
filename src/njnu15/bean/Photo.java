@@ -36,4 +36,11 @@ public class Photo {
     public void setPhotoURL(String PhotoURL){
         this.PhotoURL=PhotoURL;
     }
+
+    public Date getUploadTime(){
+        return UploadTime;
+    }
+    public void setUploadTime(Date UploadTime){
+        this.UploadTime=UploadTime;
+    }
 }
