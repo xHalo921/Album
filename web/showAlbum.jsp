@@ -1,4 +1,6 @@
-<%--
+<%@ page import="njnu15.bean.*" %>
+<%@ page import="java.util.List" %>
+<%@ page import="njnu15.tool.DAO" %><%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/6
@@ -17,13 +19,13 @@
     </tr>
     <%
         String aid=request.getParameter("albumId");
-        List<Photo> list=DAO.findAllPhoto(aid);
+        List<Photo> list= DAO.findAllPhoto(aid);
         for(Photo photo:list){
     %>
     <div class="photo">
         <tr><td><img src="<%=path%>/file/<%=photo.getPhotoName() %>" width="100" height="100"/></td>
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr>
-        <tr><a>照片所属相册名称:</a><td><%=photo.getAlbumName() %></td></tr>
+        <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr>
         <tr>
             <td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>
             <td><a href="deletePhoto.jsp?pid=<%=photo.getPhotoId() %>">删除</a></td>
