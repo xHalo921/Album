@@ -14,14 +14,14 @@ public class DAO {
         List<Album> list=new ArrayList<>();
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM album WHERE user='"+ user.getUserId() +"'";
+            String sql = "SELECT * FROM album WHERE UserId='"+ user.getUserId() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 Album album=new Album();
                 album.setAlbumId(rs.getInt("AlbumId"));
                 album.setAlbumName(rs.getString("AlbumName"));
-                album.setUserId(rs.getInt("UserId"));
+                album.setUserId(rs.getString("UserId"));
                 album.setCategory(rs.getString("Category"));
                 album.setCreateTime(rs.getDate("CreateTime"));
                 list.add(album);

@@ -21,7 +21,10 @@
 </head>
 <body>
     <div style="text-align:center">用户相册管理</div>
-    <div style="text-align:center">当前用户：<%=request.getSession().getAttribute("username")%> </div>
+    <%
+        User user=(User)request.getSession().getAttribute("user");
+    %>
+    <div style="text-align:center">当前用户：<%=user.getUserId()%> </div>
     <table border="0" cellspacing="10" cellpadding ="10"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
         <tr>
             <td><a href="createAlbum.jsp">创建相册</a></td>
@@ -29,12 +32,11 @@
         </tr>
     </table>
     <%
-        User user=(User)request.getSession().getAttribute("user");
         List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
     %>
         <div class="album">
-            <!--<a href="album.jsp"><img src="<%=path%>/<%=album.getAlbumName() %>" width="100" height="100"/></a>-->
+            <!--<a href="album.jsp"><img src="<!=path%>/<!=album.getAlbumName() %>" width="100" height="100"/></a>-->
             <tr><td>相册名：<%=album.getAlbumName() %></td></tr>
             <tr><td>类别：<%=album.getCategory() %></td></tr>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr>

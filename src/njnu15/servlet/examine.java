@@ -10,11 +10,10 @@ public class examine extends HttpServlet {
     private static boolean find(User user){
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM userkey WHERE user='"+ user.getUserId() +"' and password='"+ user.getPsaaword() +"'";
+            String sql = "SELECT * FROM userkey WHERE user='"+ user.getUserId() +"' and password='"+ user.getPassword() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            if(rs.next())   return true;
-            else            return false;
+            return rs.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -23,11 +22,11 @@ public class examine extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)throws javax.servlet.ServletException, IOException {
         User user=new User();
         user.setUserId(request.getParameter("username"));
-        user.setPsaaword(request.getParameter("password"));
+        user.setPassword(request.getParameter("password"));
 
         if (find(user)){
-            request.setAttribute("user",user);
-            request.getRequestDispatcher("albumManagement.jsp").forward(request,response);
+            request.getSession().setAttribute("user",user);
+            request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
         }
         else response.sendRedirect("/index.jsp?message=login_error");
     }

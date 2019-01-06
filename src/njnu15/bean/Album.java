@@ -26,7 +26,7 @@ public class Album {
     public String getUserId(){
         return UserId;
     }
-    public void setUserId(int UserId){
+    public void setUserId(String UserId){
         this.UserId=UserId;
     }
 
