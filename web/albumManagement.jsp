@@ -36,6 +36,7 @@
         List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
             String path = DAO.findFirstPhoto(album.getAlbumId());
+            System.out.println(path);
     %>
         <div class="album">
             <img src="<%=path%>" width="100" height="100"/>
