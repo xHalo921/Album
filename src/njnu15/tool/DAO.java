@@ -54,7 +54,7 @@ public class DAO {
     }
 
     public static String findFistPhoto(int albumId){
-        String placeholder="D:/";
+        String placeholder="/placeholder.png";
         try {
             Connection conn= JDBCHelper.getConn();
             String sql = "SELECT * FROM photo WHERE AlbumId='"+ albumId +"'";

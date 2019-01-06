@@ -3,4 +3,4 @@
 1. user:    User(String)    Password(String)
 2. album:   AlbumId(int)    AlbumName(String)   UserID(String)	CreateTime(date)
 3. photo:   PhotoId(int)    PhotoName(String)   AlbumId(int)    PhotoURL(String)    UploadTime(date)
-3. comment: CommentId(int)  PhotoId(int)        User(String)    Comments(String)
+4. comment: CommentId(int)  PhotoId(int)        User(String)    Comments(String)
