@@ -68,4 +68,58 @@ public class DAO {
         }
         return placeholder;
     }
+
+    public static List<Comment> findAllComment(int photoId){
+        List<Comment> list=new ArrayList<>();
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "SELECT * FROM comment WHERE PhotoId='"+ photoId +"'";
+            Statement stmt=conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                Comment comment=new Comment();
+                comment.setCommentId(rs.getInt("CommentId"));
+                comment.setPhotoId(rs.getInt("PhotoId"));
+                comment.setUser(rs.getString("User"));
+                comment.setComments(rs.getString("Comments"));
+                list.add(comment);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static void addAlbum(Album album){
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "insert Into albumValues('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+album.getCreateTime()+"')";
+            Statement stmt=conn.createStatement();
+            stmt.executeQuery(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addPhoto(Photo photo){
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "insert Into albumValues('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+photo.getUploadTime()+"')";
+            Statement stmt=conn.createStatement();
+            stmt.executeQuery(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addComment(Comment comment){
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "insert Into albumValues('"+comment.getCommentId()+"','"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
+            Statement stmt=conn.createStatement();
+            stmt.executeQuery(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
