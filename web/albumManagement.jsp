@@ -30,8 +30,7 @@
     </table>
     <%
         User user=(User)request.getSession().getAttribute("user");
-        DAO dao=new DAO();
-        List<Album> list=dao.findAllAlbum(user);
+        List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
     %>
         <div class="album">
