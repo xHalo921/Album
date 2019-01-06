@@ -1,4 +1,4 @@
-SQLÕËºÅ£ºuser 123456
-Êı¾İ¿â£ºalbum
-1. user£ºuser£¨String£©	password£¨String£©
-2. album£º AlbumId£¨int£©	AlbumName£¨String£©	UserID£¨String£©	CreateTime£¨date£©
+ï»¿SQLè´¦å·ï¼šuser 123456
+æ•°æ®åº“ï¼šalbum
+1. userï¼šuserï¼ˆStringï¼‰	passwordï¼ˆStringï¼‰
+2. albumï¼š AlbumIdï¼ˆintï¼‰	AlbumNameï¼ˆStringï¼‰	UserIDï¼ˆStringï¼‰	CreateTimeï¼ˆdateï¼‰
