@@ -1,7 +1,8 @@
 <%@ page import="njnu15.bean.Album" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 <%@ page import="njnu15.bean.User" %>
-<%@ page import="njnu15.tool.DAO" %><%--
+<%@ page import="njnu15.tool.DAO" %>
+<%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/5
@@ -34,9 +35,10 @@
     <%
         List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
+            String path = DAO.findFirstPhoto(album.getAlbumId());
     %>
         <div class="album">
-            <img src="<%=path%>/<%=album.getAlbumName() %>" width="100" height="100"/>
+            <img src="<%=path%>" width="100" height="100"/>
             <tr><td>相册名：<a href="showAlbum.jsp?albumId=album.getAlbumId()"><%=album.getAlbumName() %></a></td></tr>
             <tr><td>类别：<%=album.getCategory() %></td></tr>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr>
