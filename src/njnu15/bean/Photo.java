@@ -29,4 +29,11 @@ public class Photo {
     public void setAlbumName(String AlbumName){
         this.AlbumName=AlbumName;
     }
+
+    public String getPhotoURL(){
+        return PhotoURL;
+    }
+    public void setPhotoURL(String PhotoURL){
+        this.PhotoURL=PhotoURL;
+    }
 }
