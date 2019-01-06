@@ -9,6 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAO {
+    private static void exeaql(String sql){
+        try {
+            Connection conn= JDBCHelper.getConn();
+            Statement stmt=conn.createStatement();
+            stmt.executeQuery(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Album> findAllAlbum(User user){
         List<Album> list=new ArrayList<>();
         try {
@@ -91,35 +101,32 @@ public class DAO {
     }
 
     public static void addAlbum(Album album){
-        try {
-            Connection conn= JDBCHelper.getConn();
-            String sql = "insert Into albumValues('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+album.getCreateTime()+"')";
-            Statement stmt=conn.createStatement();
-            stmt.executeQuery(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String sql="insert Into album Values('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+album.getCreateTime()+"')";
+        exeaql(sql);
     }
 
     public static void addPhoto(Photo photo){
-        try {
-            Connection conn= JDBCHelper.getConn();
-            String sql = "insert Into albumValues('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+photo.getUploadTime()+"')";
-            Statement stmt=conn.createStatement();
-            stmt.executeQuery(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String sql="insert Into photo Values('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+photo.getUploadTime()+"')";
+        exeaql(sql);
     }
 
     public static void addComment(Comment comment){
-        try {
-            Connection conn= JDBCHelper.getConn();
-            String sql = "insert Into albumValues('"+comment.getCommentId()+"','"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
-            Statement stmt=conn.createStatement();
-            stmt.executeQuery(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String sql="insert Into comment Values('insert Into albumValues('"+comment.getCommentId()+"','"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
+        exeaql(sql);
+    }
+
+    public static void delAlbum(int albumId){
+        String sql="DELETE * FROM album WHERE AlbumId='"+ albumId +"'";
+        exeaql(sql);
+    }
+
+    public static void delPhoto(int photoId){
+        String sql="DELETE * FROM photo WHERE PhotoId='"+ photoId +"'";
+        exeaql(sql);
+    }
+
+    public static void delComment(int commentId){
+        String sql="DELETE * FROM comment WHERE CommentId='"+ commentId +"'";
+        exeaql(sql);
     }
 }
