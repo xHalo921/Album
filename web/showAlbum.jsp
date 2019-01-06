@@ -25,6 +25,7 @@
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr>
         <tr><a>照片所属相册名称:</a><td><%=photo.getAlbumName() %></td></tr>
         <tr>
+            <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>">查看</a></td>
             <td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>
             <td><a href="deletePhoto.jsp?pid=<%=photo.getPhotoId() %>">删除</a></td>
         </tr>
