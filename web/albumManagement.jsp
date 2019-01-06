@@ -1,4 +1,7 @@
-<%--
+<%@ page import="njnu15.bean.Album" %>
+<%@ page import="java.util.List" %>
+<%@ page import="njnu15.bean.User" %>
+<%@ page import="njnu15.tool.DAO" %><%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/5
@@ -26,9 +29,9 @@
         </tr>
     </table>
     <%
-        int userid=(Integer)request.getSession().getAttribute("userid");
+        User user=(User)request.getSession().getAttribute("user");
         DAO dao=new DAO();
-        List<Album> list=dao.findAllAlbum(userid);
+        List<Album> list=dao.findAllAlbum(user);
         for(Album album:list){
     %>
         <div class="album">

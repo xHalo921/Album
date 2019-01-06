@@ -6,7 +6,7 @@ public class Album {
     private int AlbumId;
     private String AlbumName;
     private String UserId;
-    private String category;
+    private String Category;
     private Date CreateTime;
 
     public int getAlbumId(){
@@ -26,15 +26,15 @@ public class Album {
     public String getUserId(){
         return UserId;
     }
-    public void setUserId(String UserId){
+    public void setUserId(int UserId){
         this.UserId=UserId;
     }
 
-    public String getcategory(){
-        return category;
+    public String getCategory(){
+        return Category;
     }
-    public void setcategory(String category){
-        this.category=category;
+    public void setCategory(String Category){
+        this.Category=Category;
     }
 
     public Date getCreateTime(){
