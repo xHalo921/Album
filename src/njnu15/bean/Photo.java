@@ -5,7 +5,7 @@ import java.util.Date;
 public class Photo {
     private int PhotoId;
     private String PhotoName;
-    private String AlbumName;
+    private int AlbumId;
     private String PhotoURL;
     private Date UploadTime;
 
@@ -23,11 +23,11 @@ public class Photo {
         this.PhotoName=PhotoName;
     }
 
-    public String getAlbumName(){
-        return AlbumName;
+    public int getAlbumId(){
+        return AlbumId;
     }
-    public void setAlbumName(String AlbumName){
-        this.AlbumName=AlbumName;
+    public void setAlbumId(int AlbumId){
+        this.AlbumId=AlbumId;
     }
 
     public String getPhotoURL(){

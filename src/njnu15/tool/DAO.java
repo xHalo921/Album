@@ -35,11 +35,16 @@ public class DAO {
         List<Photo> list=new ArrayList<>();
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM album WHERE UserId='"+ album.getAlbumId() +"'";
+            String sql = "SELECT * FROM photo WHERE AlbumId='"+ album.getAlbumId() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 Photo photo = new Photo();
+                photo.setPhotoId(rs.getInt("PhotoId"));
+                photo.setPhotoName(rs.getString("PhotoName"));
+                photo.setPhotoURL(rs.getString("PhotoURL"));
+                photo.setAlbumId(rs.getInt("AlbumId"));
+                photo.setUploadTime(rs.getDate("UploadTime"));
                 list.add(photo);
             }
         } catch (Exception e) {

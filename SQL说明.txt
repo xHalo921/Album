@@ -1,4 +1,5 @@
 ﻿SQL账号：user 123456
 数据库：album
-1. user：user（String）	password（String）
-2. album： AlbumId（int）	AlbumName（String）	UserID（String）	CreateTime（date）
+1. user:    user(String)    password(String)
+2. album:   AlbumId(int)    AlbumName(String)   UserID(String)	CreateTime(date)
+3. Photo:   PhotoId(int)    PhotoName(String)   AlbumId(int)    PhotoURL(String)    UploadTime(date)
