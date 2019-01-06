@@ -36,7 +36,7 @@
         for(Album album:list){
     %>
         <div class="album">
-            <!--<a href="showAlbum.jsp?albumName=album.getAlbumName()"><img src="<!%=path%>/<!%=album.getAlbumName() %>" width="100" height="100"/></a>-->
+            <!--<a href="showAlbum.jsp?albumId=album.getAlbumId()"><img src="<!%=path%>/<!%=album.getAlbumName() %>" width="100" height="100"/></a>-->
             <tr><td>相册名：<%=album.getAlbumName() %></td></tr>
             <tr><td>类别：<%=album.getCategory() %></td></tr>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr>
