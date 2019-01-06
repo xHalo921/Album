@@ -23,6 +23,7 @@
     <div style="text-align:center">用户相册管理</div>
     <%
         User user=(User)request.getSession().getAttribute("user");
+
     %>
     <div style="text-align:center">当前用户：<%=user.getUserId()%> </div>
     <table border="0" cellspacing="10" cellpadding ="10"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
