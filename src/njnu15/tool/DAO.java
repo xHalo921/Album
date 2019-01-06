@@ -53,7 +53,7 @@ public class DAO {
         return list;
     }
 
-    public static String findFistPhoto(int albumId){
+    public static String findFirstPhoto(int albumId){
         String placeholder="/placeholder.png";
         try {
             Connection conn= JDBCHelper.getConn();
