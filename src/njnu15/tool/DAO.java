@@ -31,11 +31,11 @@ public class DAO {
         return list;
     }
 
-    public static List<Photo> findAllPhoto(Album album){
+    public static List<Photo> findAllPhoto(int albumId){
         List<Photo> list=new ArrayList<>();
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM photo WHERE AlbumId='"+ album.getAlbumId() +"'";
+            String sql = "SELECT * FROM photo WHERE AlbumId='"+ albumId +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
