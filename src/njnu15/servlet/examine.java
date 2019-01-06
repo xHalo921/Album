@@ -10,7 +10,7 @@ public class examine extends HttpServlet {
     private static boolean find(User user){
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM user WHERE user='"+ user.getUserId() +"' and password='"+ user.getPassword() +"'";
+            String sql = "SELECT * FROM user WHERE User='"+ user.getUserId() +"' and Password='"+ user.getPassword() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             return rs.next();
@@ -28,6 +28,6 @@ public class examine extends HttpServlet {
             request.getSession().setAttribute("user",user);
             request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
         }
-        else response.sendRedirect("/index.jsp?message=login_error");
+        else response.sendRedirect("/login.jsp?message=login_error");
     }
 }
