@@ -1,0 +1,4 @@
+SQLÕËºÅ£ºuser 123456
+Êý¾Ý¿â£ºalbum
+1. user£ºuser£¨String£©	password£¨String£©
+2. album£º AlbumId£¨int£©	AlbumName£¨String£©	UserID£¨String£©	CreateTime£¨date£©

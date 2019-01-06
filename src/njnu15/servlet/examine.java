@@ -10,7 +10,7 @@ public class examine extends HttpServlet {
     private static boolean find(User user){
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM userkey WHERE user='"+ user.getUserId() +"' and password='"+ user.getPassword() +"'";
+            String sql = "SELECT * FROM user WHERE user='"+ user.getUserId() +"' and password='"+ user.getPassword() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             return rs.next();
