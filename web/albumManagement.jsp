@@ -2,6 +2,10 @@
 <%@ page import="java.util.*" %>
 <%@ page import="njnu15.bean.User" %>
 <%@ page import="njnu15.tool.DAO" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%--
   Created by IntelliJ IDEA.
   User: CBL
@@ -13,8 +17,9 @@
 <html>
 <head>
     <title>相册管理</title>
+    <base href="<%=basePath%>">
     <style type="text/css">
-        .album{
+        .albums{
             float:left;
             margin:20px;
         }
@@ -25,7 +30,7 @@
     <%
         User user=(User)request.getSession().getAttribute("user");
     %>
-    <div style="text-align:center">当前用户：<%=user.getUserId()%> </div>
+    <div>当前用户：<%=user.getUserId()%> </div>
     <table border="0" cellspacing="10" cellpadding ="10"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
         <tr>
             <td><a href="createAlbum.jsp">创建相册</a></td>
@@ -35,11 +40,11 @@
     <%
         List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
-            String path = DAO.findFirstPhoto(album.getAlbumId());
+            String pname = DAO.findFirstPhoto(album.getAlbumId());
             //System.out.println(path);
     %>
-        <div class="album">
-            <img src="<%=path%>" width="100" height="100" alt="照片"/></br>
+        <div class="albums">
+            <img src="/image/<%=pname%>" width="200" height="200" alt="照片"/></br>
             <tr><td>相册名：<a href="showAlbum.jsp?albumId=album.getAlbumId()"><%=album.getAlbumName() %></a></td></tr></br>
             <tr><td>类别：<%=album.getCategory() %></td></tr></br>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr></br>

@@ -1,6 +1,10 @@
 <%@ page import="njnu15.bean.*" %>
 <%@ page import="java.util.List" %>
-<%@ page import="njnu15.tool.DAO" %><%--
+<%@ page import="njnu15.tool.DAO" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%><%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/6
@@ -11,6 +15,7 @@
 <html>
 <head>
     <title>相册内容</title>
+    <base href="<%=basePath%>">
     <style type="text/css">
         .photo{
             float:left;
@@ -27,10 +32,10 @@
         int aid=Integer.parseInt(request.getParameter("albumId"));
         List<Photo> list= DAO.findAllPhoto(aid);
         for(Photo photo:list){
-            String path = photo.getPhotoURL();
+            String pname = photo.getPhotoURL();
     %>
     <div class="photo">
-        <tr><td><img src="<%=path%>" width="100" height="100" alt="照片"/></td></br>
+        <tr><td><img src="/image/<%=pname%>" width="100" height="100" alt="照片"/></td></br>
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr></br>
         <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr></br>
         <tr>
