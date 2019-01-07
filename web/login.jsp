@@ -32,10 +32,10 @@
 </head>
 <body>
 
-    <form action="" method="post">
+    <form action="njnu15/servlet/examine" method="post">
         <table border="0" cellspacing="1" cellpadding ="0"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
             <tr>
-                <td colspan="2" align="center">用户登录</td></tr>
+                <td colspan="2" align="center">用户登录</td>
             </tr>
             <tr>
                 <td>用户名：</td><td><input type="text" name="username"></td>

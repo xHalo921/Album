@@ -1,4 +1,5 @@
-<%--
+<%@ page import="njnu15.tool.AlbumCategory" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/5
@@ -12,7 +13,7 @@
 </head>
 <body>
     <div style="text-align:center">创建相册</div>
-    <form action="" method="post">
+    <form action="/test/njnu15/servlet/createAlbum" method="post">
         <table border="0" cellspacing="1" cellpadding ="0"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
             <tr>
                 <td colspan="2" align="center">相册名：</td>
@@ -21,11 +22,19 @@
             <tr>
                 <td colspan="2" align="center">相册类别：</td>
                 <td><select name="category">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <%
+                    List<String> list = AlbumCategory.getAlbumCategory();
+                    for(String s:list){
+                %>
+                    <option value="<%=s%>"><%=s%></option>
+                <%  } %>
                 </select></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="reset" value="重置"/>
+                    <input type="submit" value="提交"/>
+                </td>
             </tr>
         </table>
     </form>
