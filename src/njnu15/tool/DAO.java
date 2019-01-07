@@ -68,4 +68,14 @@ public class DAO {
         }
         return placeholder;
     }
+
+    public static String findPhoto(String PhotoId){
+        String PhotoURL=null;
+        try{
+            Connection conn=JDBCHelper.getConn();
+            String sql="SELECT*FROM "
+
+        }
+        return PhotoURL;
+    }
 }
