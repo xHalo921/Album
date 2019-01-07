@@ -33,7 +33,8 @@ public class examine extends HttpServlet {
                 request.getRequestDispatcher("/categoryManagement.jsp").forward(request,response);
             else {
                 request.getSession().setAttribute("user",user);
-                request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
+                //request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
+                response.sendRedirect("/albumManagement.jsp");
             }
         }
         else response.sendRedirect("/login.jsp?message=login_error");
