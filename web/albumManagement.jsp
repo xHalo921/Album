@@ -41,14 +41,13 @@
         List<Album> list=DAO.findAllAlbum(user);
         for(Album album:list){
             String pname = DAO.findFirstPhoto(album.getAlbumId());
-            //System.out.println(path);
     %>
         <div class="albums">
             <img src="/image/<%=pname%>" width="200" height="200" alt="照片"/></br>
-            <tr><td>相册名：<a href="showAlbum.jsp?albumId=album.getAlbumId()"><%=album.getAlbumName() %></a></td></tr></br>
+            <tr><td>相册名：<a href="showAlbum.jsp?albumId=<%=album.getAlbumId()%>"><%=album.getAlbumName() %></a></td></tr></br>
             <tr><td>类别：<%=album.getCategory() %></td></tr></br>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr></br>
-            <tr><td><a href="changeAlbum.jsp">修改</a>></td><td><a href="">删除</a>></td></tr></br>
+            <tr><td><a href="changeAlbum.jsp">修改</a></td><td><a href="">删除</a>></td></tr></br>
         </div>
     <%  } %>
 </body>

@@ -24,23 +24,29 @@
     </style>
 </head>
 <body>
-    <div style="text-align:center">当前用户：<%=request.getSession().getAttribute("username")%> </div>
+    <%
+        User user=(User)request.getSession().getAttribute("user");
+    %>
+    <div>当前用户：<%=user.getUserId()%> </div>
     <tr>
         <td><a href="uploadPhoto.jsp">上传照片</a></td>
     </tr>
     <%
         int aid=Integer.parseInt(request.getParameter("albumId"));
+        //int aid=(Integer)request.getSession().getAttribute("albumId");
+        System.out.println(aid);
         List<Photo> list= DAO.findAllPhoto(aid);
         for(Photo photo:list){
-            String pname = photo.getPhotoURL();
+            String pname = photo.getPhotoName();
+            System.out.println(pname);
     %>
     <div class="photo">
-        <tr><td><img src="/image/<%=pname%>" width="100" height="100" alt="照片"/></td></br>
+        <tr><td><img src="/image/<%=pname%>" width="100" height="100" alt="照片"/></td></tr></br>
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr></br>
         <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr></br>
         <tr>
             <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>">查看</a></td>
-            <td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>
+            <%--<td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>--%>
             <td><a href="deletePhoto.jsp?pid=<%=photo.getPhotoId() %>">删除</a></td>
         </tr></br>
     </div>

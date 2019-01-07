@@ -71,7 +71,7 @@ public class DAO {
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()){
-                return rs.getString("PhotoURL");
+                return rs.getString("PhotoName");
             }
         } catch (Exception e) {
             e.printStackTrace();
