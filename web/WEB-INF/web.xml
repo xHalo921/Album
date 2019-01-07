@@ -10,6 +10,7 @@
         <servlet-name>examine</servlet-name>
         <servlet-class>njnu15.servlet.examine</servlet-class>
     </servlet>
+
     <servlet>
         <description>sign</description>
         <servlet-name>createAlbum</servlet-name>
@@ -26,9 +27,16 @@
         <servlet-name>UpLoadPic</servlet-name>
         <servlet-class>njnu15.servlet.UpLoadPic</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>DelPhoto</servlet-name>
         <servlet-class>njnu15.servlet.DelPhoto</servlet-class>
+    </servlet>
+
+    <servlet>
+        <description>sign</description>
+        <servlet-name>delAlbum</servlet-name>
+        <servlet-class>njnu15.servlet.delAlbum</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -54,6 +62,11 @@
     <servlet-mapping>
         <servlet-name>UpLoadPic</servlet-name>
         <url-pattern>/njnu15/servlet/UpLoadPic</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>delAlbum</servlet-name>
+        <url-pattern>/njnu15/servlet/delAlbum</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

@@ -119,12 +119,12 @@ public class DAO {
     }
 
     public static void delAlbum(int albumId){
-        String sql="DELETE * FROM album WHERE AlbumId='"+ albumId +"'";
+        String sql="DELETE FROM album LEFT JOIN photo on photo.AlbumId=album.AlbumId LEFT JOIN comment on photo.PhotoId=comment.PhotoId WHERE AlbumId="+ albumId;
         exesql(sql);
     }
 
     public static void delPhoto(int photoId){
-        String sql="DELETE * FROM photo WHERE PhotoId='"+ photoId +"'";
+        String sql="DELETE FROM photo LEFT JOIN comment on photo.PhotoId=comment.PhotoId WHERE PhotoId="+ photoId;
         exesql(sql);
     }
 
