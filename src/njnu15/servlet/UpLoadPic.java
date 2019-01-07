@@ -83,8 +83,8 @@ public class UpLoadPic extends HttpServlet {
                     // newfilename="p81217";//filename.substring(0,filename.indexOf("."));
 
                     System.out.println("item:"+fileitem);
-                    newfilename=newfilename+fileitem;
-                    realpath="D:/Images/";
+                    newfilename=newfilename;//+fileitem;
+                    realpath="D:/images/";
                     newfilename=realpath+newfilename;
                     System.out.println("newfilename1:"+newfilename);
                     int filestart=strcontent.indexOf("\n",typestart)+1;
