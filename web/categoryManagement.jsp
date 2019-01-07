@@ -1,3 +1,9 @@
+<%@ page import="java.util.List" %>
+<%@ page import="njnu15.tool.AlbumCategory" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%--
   Created by IntelliJ IDEA.
   User: CBL
@@ -9,8 +15,20 @@
 <html>
 <head>
     <title>相册类别管理</title>
+    <base href="<%=basePath%>">
 </head>
 <body>
-
+<p>当前类别：</p>
+<%
+    List<String> list= AlbumCategory.getAlbumCategory();
+    for(int i=0;i<list.size();i++){
+%>
+<div>
+    <td><%=list.get(i)%>  <a href="delCategory.jsp?CategoryId=<%=i%>">删除类别</a></td>
+</div>
+<%}%>
+<form action="njnu15/servlet/addCategory" method="post">
+    <td><input type="text" name="newCategory"><input type="submit" value="新增"/></td>
+</form>
 </body>
 </html>
