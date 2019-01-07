@@ -41,7 +41,6 @@
         List<Photo> list= DAO.findAllPhoto(aid);
         for(Photo photo:list){
             String pname = photo.getPhotoName();
-            System.out.println(pname);
     %>
     <div class="photo">
         <tr><td><img src="/image/<%=pname%>" width="100" height="100" alt="照片"/></td></tr></br>
@@ -50,11 +49,7 @@
         <tr>
             <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>">查看</a></td>
             <%--<td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>--%>
-            <%
-                int pid=photo.getPhotoId();
-                request.getSession().setAttribute("PID",pid);
-            %>
-            <td><a href="njnu15/servlet/DelPhoto" >删除</a></td>
+            <td><a href="njnu15/servlet/DelPhoto?PID=<%=photo.getPhotoId()%>" >删除</a></td>
         </tr></br>
     </div>
     <% } %>

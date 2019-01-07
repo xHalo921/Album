@@ -119,17 +119,17 @@ public class DAO {
     }
 
     public static void delAlbum(int albumId){
-        String sql="DELETE FROM album LEFT JOIN photo on photo.AlbumId=album.AlbumId LEFT JOIN comment on photo.PhotoId=comment.PhotoId WHERE AlbumId="+ albumId;
+        String sql="DELETE discuss,photo,album FROM album JOIN photo on photo.AlbumId=album.AlbumId JOIN discuss on photo.PhotoId=discuss.PhotoId WHERE AlbumId="+ albumId;
         exesql(sql);
     }
 
     public static void delPhoto(int photoId){
-        String sql="DELETE FROM photo LEFT JOIN comment on photo.PhotoId=comment.PhotoId WHERE PhotoId="+ photoId;
+        String sql="DELETE discuss,photo FROM photo JOIN discuss on photo.PhotoId=discuss.PhotoId WHERE photo.PhotoId="+ photoId;
         exesql(sql);
     }
 
     public static void delComment(int commentId){
-        String sql="DELETE * FROM comment WHERE CommentId='"+ commentId +"'";
+        String sql="DELETE FROM discuss WHERE CommentId='"+ commentId +"'";
         exesql(sql);
     }
 }
