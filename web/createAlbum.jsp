@@ -13,7 +13,7 @@
 </head>
 <body>
     <div style="text-align:center">创建相册</div>
-    <form action="/test/njnu15/servlet/createAlbum" method="post">
+    <form action="/njnu15/servlet/createAlbum" method="post">
         <table border="0" cellspacing="1" cellpadding ="0"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
             <tr>
                 <td colspan="2" align="center">相册名：</td>

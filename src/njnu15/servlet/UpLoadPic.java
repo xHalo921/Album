@@ -66,7 +66,7 @@ public class UpLoadPic extends HttpServlet {
                 int typeend=strcontent.indexOf("\n", typestart)-1;
                 String formType=strcontent.substring(typestart, typeend);
 
-                if(formType.equals("image/jpeg")||formType.equals("image/gif")||formType.equals("image/pjepg"))
+                if(formType.equals("image/jpeg")||formType.equals("image/gif")||formType.equals("image/pjepg")||formType.equals("image/png"))
                 {
                     int filenamestart=strcontent.indexOf("filename=\"")+10;
                     int filenameend=strcontent.indexOf("\n",filenamestart)-2;
@@ -121,7 +121,8 @@ public class UpLoadPic extends HttpServlet {
                     pic.setUploadTime(date);
                     DAO.addPhoto(pic);
 
-                    request.getRequestDispatcher("/showAlbum.jsp?albumId="+x).forward(request,response);
+                    //request.getRequestDispatcher("/showAlbum.jsp?albumId="+x).forward(request,response);
+                    response.sendRedirect("/showAlbum.jsp?albumId="+x);
                 }else{
                     //response.sendRedirect("error.jsp");
                 }
