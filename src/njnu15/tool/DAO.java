@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAO {
-    private static void exeaql(String sql){
+    private static void exesql(String sql){
         try {
             Connection conn= JDBCHelper.getConn();
             Statement stmt=conn.createStatement();
-            stmt.executeQuery(sql);
+            stmt.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,31 +102,31 @@ public class DAO {
 
     public static void addAlbum(Album album){
         String sql="insert Into album Values('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+album.getCreateTime()+"')";
-        exeaql(sql);
+        exesql(sql);
     }
 
     public static void addPhoto(Photo photo){
         String sql="insert Into photo Values('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+photo.getUploadTime()+"')";
-        exeaql(sql);
+        exesql(sql);
     }
 
     public static void addComment(Comment comment){
         String sql="insert Into comment Values('insert Into albumValues('"+comment.getCommentId()+"','"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
-        exeaql(sql);
+        exesql(sql);
     }
 
     public static void delAlbum(int albumId){
         String sql="DELETE * FROM album WHERE AlbumId='"+ albumId +"'";
-        exeaql(sql);
+        exesql(sql);
     }
 
     public static void delPhoto(int photoId){
         String sql="DELETE * FROM photo WHERE PhotoId='"+ photoId +"'";
-        exeaql(sql);
+        exesql(sql);
     }
 
     public static void delComment(int commentId){
         String sql="DELETE * FROM comment WHERE CommentId='"+ commentId +"'";
-        exeaql(sql);
+        exesql(sql);
     }
 }
