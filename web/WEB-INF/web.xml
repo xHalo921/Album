@@ -9,9 +9,19 @@
         <servlet-class>njnu15.servlet.examine</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>UpLoadPic</servlet-name>
+        <servlet-class>njnu15.servlet.UpLoadPic</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>examine</servlet-name>
         <url-pattern>/njnu15/servlet/examine</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpLoadPic</servlet-name>
+        <url-pattern>/njnu15/servlet/UpLoadPic</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

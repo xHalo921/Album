@@ -26,15 +26,18 @@
 <body>
     <%
         User user=(User)request.getSession().getAttribute("user");
+        int aid=Integer.parseInt(request.getParameter("albumId"));
+        request.getSession().setAttribute("AID",aid);
+        System.out.println("aid:"+aid);
     %>
     <div>当前用户：<%=user.getUserId()%> </div>
-    <tr>
-        <td><a href="uploadPhoto.jsp">上传照片</a></td>
-    </tr>
+    ${path}
+    <form action="njnu15/servlet/UpLoadPic" enctype="multipart/form-data" id="loginform" name="loginform" method="post">
+        选择图片：<input type="file" name="filename"/>
+        <input id="subid" name="subid" type="submit" value="提交">
+    </form>
     <%
-        int aid=Integer.parseInt(request.getParameter("albumId"));
-        //int aid=(Integer)request.getSession().getAttribute("albumId");
-        System.out.println(aid);
+
         List<Photo> list= DAO.findAllPhoto(aid);
         for(Photo photo:list){
             String pname = photo.getPhotoName();
