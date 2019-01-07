@@ -71,16 +71,22 @@ public class UpLoadPic extends HttpServlet {
                     int filenamestart=strcontent.indexOf("filename=\"")+10;
                     int filenameend=strcontent.indexOf("\n",filenamestart)-2;
                     String filename=strcontent.substring(filenamestart,filenameend);
-                    filename=filename.substring(filename.lastIndexOf("."));
+                    String fileitem=filename.substring(filename.lastIndexOf("."));//.jpg
 
-                    // SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+                    File tempFile =new File( filename.trim());
+
+                    String newfilename = tempFile.getName();
+                    String nameforsql=newfilename;
+
+                    System.out.println("filename:"+filename);
                     String time = String.valueOf(new Date().getTime());
-                    String newfilename=""+time;
-                    String photoId=newfilename.substring(6,newfilename.length());
+                    // newfilename="p81217";//filename.substring(0,filename.indexOf("."));
 
-                    newfilename=newfilename+filename;
-                    realpath=realpath+"\\Images\\";
+                    System.out.println("item:"+fileitem);
+                    newfilename=newfilename+fileitem;
+                    realpath="D:/Images/";
                     newfilename=realpath+newfilename;
+                    System.out.println("newfilename1:"+newfilename);
                     int filestart=strcontent.indexOf("\n",typestart)+1;
                     filestart=strcontent.indexOf("\n",filestart)+1;
                     int intboundary=contentType.indexOf("boundary=")+10;
@@ -97,6 +103,7 @@ public class UpLoadPic extends HttpServlet {
                         myfile.mkdirs();
                     }
 
+                    System.out.println("newfilename2:"+newfilename);
                     out=new FileOutputStream(newfilename);
                     out.write(formcontent, contentstart,contentend-contentstart);
 
@@ -106,8 +113,8 @@ public class UpLoadPic extends HttpServlet {
                     System.out.println("aid2："+x);
                     pic.setAlbumId(x);
                     //pic.setAlbumId(123);
-                    pic.setPhotoName("NoName");
-                    pic.setPhotoURL("NoURL");
+                    pic.setPhotoName(nameforsql);
+                    pic.setPhotoURL(realpath);
                     Date date=new Date();
                     date.getTime();
                     //Timestamp t = new Timestamp(date.getTime());
