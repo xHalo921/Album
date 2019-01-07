@@ -64,6 +64,22 @@ public class DAO {
         return list;
     }
 
+    public static List<String> findAllFriends(String User){
+        List<String> list=new ArrayList<>();
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "SELECT * FROM friends WHERE User='"+ User +"'";
+            Statement stmt=conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                list.add(rs.getString("FriendId"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public static String findFirstPhoto(int albumId){
         String placeholder="placeholder.png";
         try {
