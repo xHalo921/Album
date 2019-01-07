@@ -26,11 +26,21 @@
         <servlet-name>UpLoadPic</servlet-name>
         <servlet-class>njnu15.servlet.UpLoadPic</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DelPhoto</servlet-name>
+        <servlet-class>njnu15.servlet.DelPhoto</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>examine</servlet-name>
         <url-pattern>/njnu15/servlet/examine</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DelPhoto</servlet-name>
+        <url-pattern>/njnu15/servlet/DelPhoto</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>createAlbum</servlet-name>
         <url-pattern>/njnu15/servlet/createAlbum</url-pattern>
