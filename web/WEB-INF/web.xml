@@ -9,12 +9,23 @@
         <servlet-class>njnu15.servlet.examine</servlet-class>
     </servlet>
 
+    <servlet>
+        <description>addCategory</description>
+        <servlet-name>addCategory</servlet-name>
+        <servlet-class>njnu15.servlet.addCategory</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>examine</servlet-name>
         <url-pattern>/njnu15/servlet/examine</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>addCategory</servlet-name>
+        <url-pattern>/njnu15/servlet/addCategory</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>categoryManagement.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
