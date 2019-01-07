@@ -5,6 +5,7 @@ import njnu15.bean.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,12 +102,14 @@ public class DAO {
     }
 
     public static void addAlbum(Album album){
-        String sql="insert Into album Values('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+album.getCreateTime()+"')";
+        Timestamp t = new Timestamp(album.getCreateTime().getTime());
+        String sql="insert Into album Values('"+album.getAlbumId()+"','"+album.getAlbumName()+"','"+album.getUserId()+"','"+t+"')";
         exesql(sql);
     }
 
     public static void addPhoto(Photo photo){
-        String sql="insert Into photo Values('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+photo.getUploadTime()+"')";
+        Timestamp t = new Timestamp(photo.getUploadTime().getTime());
+        String sql="insert Into photo Values('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+t+"')";
         exesql(sql);
     }
 
