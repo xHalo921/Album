@@ -124,7 +124,6 @@ public class DAO {
     }
 
     public static void delPhoto(int photoId){
-        System.out.println("xxxx"+photoId);
         String sql="DELETE discuss,photo FROM photo JOIN discuss on photo.PhotoId=discuss.PhotoId WHERE photo.PhotoId="+ photoId;
         exesql(sql);
     }

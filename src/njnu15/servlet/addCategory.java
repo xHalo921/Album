@@ -12,7 +12,7 @@ public class addCategory extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws javax.servlet.ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String s=request.getParameter("newCategory");
-        System.out.println(s);
+        //System.out.println(s);
         AlbumCategory.addCategory(s);
         request.getRequestDispatcher("/categoryManagement.jsp").forward(request,response);
     }

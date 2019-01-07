@@ -13,7 +13,11 @@ public class examine extends HttpServlet {
             String sql = "SELECT * FROM user WHERE User='"+ user.getUserId() +"' and Password='"+ user.getPassword() +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return rs.next();
+            if(rs.next()) {
+                user.setPermission(rs.getBoolean("Permission"));
+                return true;
+            }
+            else return false;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -23,10 +27,14 @@ public class examine extends HttpServlet {
         User user=new User();
         user.setUserId(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
-
+        
         if (find(user)){
-            request.getSession().setAttribute("user",user);
-            request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
+            if (user.isPermission())
+                request.getRequestDispatcher("/categoryManagement.jsp").forward(request,response);
+            else {
+                request.getSession().setAttribute("user",user);
+                request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);
+            }
         }
         else response.sendRedirect("/login.jsp?message=login_error");
     }
