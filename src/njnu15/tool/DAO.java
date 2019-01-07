@@ -109,7 +109,7 @@ public class DAO {
 
     public static void addPhoto(Photo photo){
         Timestamp t = new Timestamp(photo.getUploadTime().getTime());
-        String sql="insert Into photo Values('"+photo.getPhotoId()+"','"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+t+"')";
+        String sql="insert Into photo(PhotoName,AlbumId,photoURL,UploadTime) Values('"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+t+"')";
         exesql(sql);
     }
 

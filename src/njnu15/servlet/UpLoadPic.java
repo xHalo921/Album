@@ -101,7 +101,7 @@ public class UpLoadPic extends HttpServlet {
                     out.write(formcontent, contentstart,contentend-contentstart);
 
                     Photo pic = new Photo();
-                    pic.setPhotoId(Integer.parseInt(photoId));
+                    //pic.setPhotoId(Integer.parseInt(photoId));
                     int x= (int) request.getSession().getAttribute("AID");
                     System.out.println("aid2："+x);
                     pic.setAlbumId(x);
@@ -109,9 +109,9 @@ public class UpLoadPic extends HttpServlet {
                     pic.setPhotoName("NoName");
                     pic.setPhotoURL("NoURL");
                     Date date=new Date();
-                    //date.getTime();
-                    Timestamp t = new Timestamp(date.getTime());
-                    pic.setUploadTime(t);
+                    date.getTime();
+                    //Timestamp t = new Timestamp(date.getTime());
+                    pic.setUploadTime(date);
                     DAO.addPhoto(pic);
 
                     request.getRequestDispatcher("/showAlbum.jsp?albumId="+x).forward(request,response);
