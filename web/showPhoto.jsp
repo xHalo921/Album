@@ -16,11 +16,11 @@
 <head>
     <title>Title</title>
     <style type="text/css">
-        /*#back{*/
-            /*position:absolute;*/
-            /*left:400px;*/
-            /*top:0px;*/
-        /*}*/
+        #back{
+            position:absolute;
+            left:400px;
+            top:0px;
+        }
     </style>
 </head>
 <body>
@@ -29,17 +29,19 @@
     User user=(User)request.getSession().getAttribute("user");
 %>
 <div style="text-align:center">当前用户：<%=user.getUserId()%> </div>
-<%--<div id="back">--%>
-    <%--<input type="button" value="返回" onclick="window.location.href='albumManagement.jsp'"/>--%>
-<%--</div>--%>
+
     <div>
         <%
             int pid=Integer.parseInt(request.getParameter("pid"));
+            int albumID=DAO.findAlbum(pid);
             System.out.println(pid);
             String pname=request.getParameter("pname");
         %>
         <img src="/image/<%=pname%>" width="300" height="300" alt="照片"/>
 
+    </div>
+    <div id="back">
+        <input type="button" value="返回" onclick="window.location.href='/showAlbum.jsp?albumId=<%=albumID%>'"/>
     </div>
     评论:<br/>
     <%

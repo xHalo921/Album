@@ -42,6 +42,22 @@ public class DAO {
         return list;
     }
 
+    public static int findAlbum(int photoId){
+        int albumId = 0;
+        try {
+            Connection conn= JDBCHelper.getConn();
+            String sql = "SELECT AlbumId FROM photo WHERE PhotoId='"+ photoId +"'";
+            Statement stmt=conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                albumId=rs.getInt("AlbumId");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return albumId;
+    }
+
     public static void changeAlbum(int albumId,String aname,String cate){
         if(aname=="" && cate=="") {
             return;
