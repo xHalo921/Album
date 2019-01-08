@@ -24,6 +24,12 @@
     </servlet>
 
     <servlet>
+        <description>sign</description>
+        <servlet-name>changeAlbum</servlet-name>
+        <servlet-class>njnu15.servlet.changeAlbum</servlet-class>
+    </servlet>
+
+    <servlet>
         <description>addCategory</description>
         <servlet-name>addCategory</servlet-name>
         <servlet-class>njnu15.servlet.addCategory</servlet-class>
@@ -69,6 +75,11 @@
     <servlet-mapping>
         <servlet-name>createAlbum</servlet-name>
         <url-pattern>/njnu15/servlet/createAlbum</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>changeAlbum</servlet-name>
+        <url-pattern>/njnu15/servlet/changeAlbum</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

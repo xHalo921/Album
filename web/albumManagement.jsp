@@ -51,7 +51,7 @@
             <tr><td>相册名：<a href="showAlbum.jsp?albumId=<%=album.getAlbumId()%>"><%=album.getAlbumName() %></a></td></tr>
             <tr><td>类别：<%=album.getCategory() %></td></tr>
             <tr><td>创建时间：<%=album.getCreateTime() %></td></tr>
-            <tr><td><a href="changeAlbum.jsp">修改</a></td>
+            <tr><td><a href="changeAlbum.jsp?albumId=<%=album.getAlbumId()%>">修改</a></td>
             <td><a href="njnu15/servlet/delAlbum?albumId=<%=album.getAlbumId()%>">删除</a>></td></tr>
             </table>
         </div>

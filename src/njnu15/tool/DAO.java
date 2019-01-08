@@ -42,6 +42,28 @@ public class DAO {
         return list;
     }
 
+    public static void changeAlbum(int albumId,String aname,String cate){
+        if(aname=="" && cate=="") {
+            return;
+        }
+        try{
+            Connection conn= JDBCHelper.getConn();
+            Statement stmt=conn.createStatement();
+            if(aname!=""&&cate!=""){
+                String sql="update album set AlbumName = '"+aname+"',Category='"+cate+"' where AlbumId = '"+albumId+"'";
+                stmt.executeUpdate(sql);
+            } else if(aname!=""&&cate==""){
+                String sql="update album set AlbumName = '"+aname+"' where AlbumId = '"+albumId+"'";
+                stmt.executeUpdate(sql);
+            } else if(aname==""&&cate!=""){
+                String sql="update album set Category = '"+cate+"' where AlbumId = '"+albumId+"'";
+                stmt.executeUpdate(sql);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static List<Photo> findAllPhoto(int albumId){
         List<Photo> list=new ArrayList<>();
         try {
