@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 public class RegisterServlet extends HttpServlet {
 
     //public final String success = "/registerSuccess.jsp";
-    public final String failure = "/registerFailure.jsp";
+    //public final String failure = "/registerFailure.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
             PreparedStatement pStmt = conn.prepareStatement("select * from user where User = '" + username + "'");
             ResultSet rs = pStmt.executeQuery();
             if(rs.next()){
-                request.getRequestDispatcher(failure).forward(request, response);
+                response.sendRedirect("/register.jsp?message=register_error");
             }else{
                 DAO.addUser(user);
                 request.getSession().setAttribute("user",user);

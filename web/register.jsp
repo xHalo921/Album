@@ -3,7 +3,7 @@
 <head>
     <title>注册界面</title>
     <%
-        if("login_error".equals(request.getParameter("message"))){ %>
+        if("register_error".equals(request.getParameter("message"))){ %>
             <script type="text/javascript">
                 alert("该用户名已存在！");
             </script>
