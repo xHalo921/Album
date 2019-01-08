@@ -1,4 +1,5 @@
-<%--
+<%@ page import="njnu15.bean.Photo" %>
+<%@ page import="njnu15.tool.DAO" %><%--
   Created by IntelliJ IDEA.
   User: CBL
   Date: 2019/1/6

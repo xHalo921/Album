@@ -34,6 +34,7 @@ public class AlbumCategory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        list.add(s);
     }
 
     public static void delCategory(int i){
@@ -45,5 +46,6 @@ public class AlbumCategory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        list.remove(i);
     }
 }

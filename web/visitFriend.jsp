@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-<div style="text-align:center">用户相册管理</div>
+<div style="text-align:center">好友相册</div>
 <%
     User user=(User)request.getSession().getAttribute("user");
     String friendId=request.getParameter("friendId");

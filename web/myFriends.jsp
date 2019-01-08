@@ -16,12 +16,21 @@
 <html>
 <head>
     <title>好友列表</title>
+    <%
+        String result=request.getParameter("result");
+        if (!result.equals("")){
+            System.out.println("result"+result);
+    %>
+    <script type="text/javascript">
+        alert("<%=result%>");
+    </script>
+    <%}%>
     <base href="<%=basePath%>">
 </head>
 <body>
 <%
     User user=(User)request.getSession().getAttribute("user");
-    System.out.print("visit:"+user.getUserId());
+    System.out.println("visit:"+user.getUserId());
     String visitId=user.getUserId();
     List<String> list=new ArrayList<>();
     list= DAO.findAllFriends(visitId);
@@ -29,5 +38,11 @@
 %>
 <td><a href="visitFriend.jsp?friendId=<%=friendId%>"><%=friendId%></a></td>
 <%}%>
+<form action="njnu15/servlet/addFriend" method="post">
+    <td>好友名：</td><td><input type="text" name="friendId"></td>
+    <input type="submit" value="添加"/>
+</form>
+<td><a href="myFriends.jsp">删除好友</a></td>
+
 </body>
 </html>
