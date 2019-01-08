@@ -17,9 +17,9 @@ public class DelPhoto extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int x= (int) request.getSession().getAttribute("AID");
+        int x= (Integer)request.getSession().getAttribute("AID");
         int pid= Integer.parseInt(request.getParameter("PID"));
-        //System.out.println("Del:"+pid);
+        System.out.println("Del:"+pid);
         DAO.delPhoto(pid);
         request.getRequestDispatcher("/showAlbum.jsp?albumId="+x).forward(request,response);
     }
