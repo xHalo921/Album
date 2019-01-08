@@ -31,10 +31,10 @@ public class AddComment extends HttpServlet {
         System.out.println("pid:"+pid);
         System.out.println("Com:"+str);
 
-
+        boolean isMaster=Boolean.parseBoolean(request.getParameter("isMaster"));
         String pname= String.valueOf(request.getSession().getAttribute("Pname"));
-        System.out.println("pname:"+pname);
-        request.getRequestDispatcher("/showPhoto.jsp?pid="+pid+"&pname="+pname).forward(request,response);
+        System.out.println("isMaster:"+isMaster);
+        response.sendRedirect("/showPhoto.jsp?pid="+pid+"&pname="+pname+"&isMaster="+isMaster);
         //response.sendRedirect("/showPhoto.jsp?pid="+pid+"&pname="+pname);
     }
 }

@@ -67,7 +67,7 @@
         request.getSession().setAttribute("Pname",pname);
     %>
 
-    <form action="njnu15/servlet/AddComment" method="post">
+    <form action="njnu15/servlet/AddComment?isMaster=<%=isMaster%>" method="post">
         发表评论：<br/>
 
         <textarea cols="60" rows="5" name="comments" ></textarea>
