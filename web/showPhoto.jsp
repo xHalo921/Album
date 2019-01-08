@@ -34,6 +34,12 @@
         <%
             int pid=Integer.parseInt(request.getParameter("pid"));
             int albumID=DAO.findAlbum(pid);
+            boolean isMaster=Boolean.parseBoolean(request.getParameter("isMaster"));
+            System.out.println("ismaster"+isMaster);
+            String url=null;
+            if(isMaster)
+                url="/showAlbum.jsp?albumId="+albumID;
+            else url="/visitAlbum.jsp?albumId="+albumID;
             System.out.println(pid);
             String pname=request.getParameter("pname");
         %>
@@ -41,7 +47,7 @@
 
     </div>
     <div id="back">
-        <input type="button" value="返回" onclick="window.location.href='/showAlbum.jsp?albumId=<%=albumID%>'"/>
+        <input type="button" value="返回" onclick="window.location.href='<%=url%>'"/>
     </div>
     评论:<br/>
     <%

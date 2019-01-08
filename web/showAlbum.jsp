@@ -62,13 +62,9 @@ ${path}
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr>
         <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr>
         <tr>
-            <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>&pname=<%=photo.getPhotoName()%>">查看</a></td>
+            <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>&pname=<%=photo.getPhotoName()%>&isMaster=true">查看</a></td>
             <%--<td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>--%>
-            <%
-                int pid=photo.getPhotoId();
-                request.getSession().setAttribute("PID",pid);
-            %>
-            <td><a href="njnu15/servlet/DelPhoto" >删除</a></td>
+            <td><a href="njnu15/servlet/DelPhoto?PID=<%=photo.getPhotoId()%>" >删除</a></td>
         </tr>
     </table>
 </div>

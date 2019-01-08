@@ -47,7 +47,7 @@ ${path}
         <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr>
         <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr>
         <tr>
-            <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>&pname=<%=photo.getPhotoName()%>">查看</a></td>
+            <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>&pname=<%=photo.getPhotoName()%>&isMaster=false">查看</a></td>
         </tr>
     </table>
 </div>
