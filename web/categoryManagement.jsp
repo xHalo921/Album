@@ -30,5 +30,6 @@
 <form action="njnu15/servlet/addCategory" method="post">
     <td><input type="text" name="newCategory"><input type="submit" value="新增"/></td>
 </form>
+<td><a href="login.jsp">退出登录</a></td>
 </body>
 </html>
