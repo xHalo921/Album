@@ -30,6 +30,12 @@
     </servlet>
 
     <servlet>
+        <description>addComment</description>
+        <servlet-name>AddComment</servlet-name>
+        <servlet-class>njnu15.servlet.AddComment</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>UpLoadPic</servlet-name>
         <servlet-class>njnu15.servlet.UpLoadPic</servlet-class>
     </servlet>
@@ -68,6 +74,11 @@
     <servlet-mapping>
         <servlet-name>addCategory</servlet-name>
         <url-pattern>/njnu15/servlet/addCategory</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddComment</servlet-name>
+        <url-pattern>/njnu15/servlet/AddComment</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

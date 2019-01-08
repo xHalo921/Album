@@ -100,7 +100,7 @@ public class DAO {
         List<Comment> list=new ArrayList<>();
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT * FROM comment WHERE PhotoId='"+ photoId +"'";
+            String sql = "SELECT * FROM discuss WHERE PhotoId='"+ photoId +"'";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
@@ -135,7 +135,7 @@ public class DAO {
     }
 
     public static void addComment(Comment comment){
-        String sql="insert Into comment Values('insert Into albumValues('"+comment.getCommentId()+"','"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
+        String sql="insert Into discuss (PhotoId,User,Comments) Values('"+comment.getPhotoId()+"','"+comment.getUser()+"','"+comment.getComments()+"')";
         exesql(sql);
     }
 
