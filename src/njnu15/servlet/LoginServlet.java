@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 
-public class examine extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     private static boolean find(User user){
         try {
             Connection conn= JDBCHelper.getConn();
@@ -27,7 +27,7 @@ public class examine extends HttpServlet {
         User user=new User();
         user.setUserId(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
-        
+
         if (find(user)){
             if (user.isPermission())
                 request.getRequestDispatcher("/categoryManagement.jsp").forward(request,response);

@@ -123,6 +123,11 @@ public class DAO {
         exesql(sql);
     }
 
+    public static void addUser(User user){
+        String sql = "Insert into user values('" + user.getUserId()+ "','" + user.getPassword() + "','"+ user.getGender() + "')";
+        exesql(sql);
+    }
+
     public static void addPhoto(Photo photo){
         Timestamp t = new Timestamp(photo.getUploadTime().getTime());
         String sql="insert Into photo(PhotoName,AlbumId,photoURL,UploadTime) Values('"+photo.getPhotoName()+"','"+photo.getAlbumId()+"','"+photo.getPhotoURL()+"','"+t+"')";

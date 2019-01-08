@@ -36,7 +36,7 @@
     </script>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="njnu15/servlet/RegisterServlet" method="post">
         <table border="0" cellspacing="1" cellpadding ="0" align="center" style="border-collapse:separate; border-spacing:10px 10px;">
             <tr>
                 <td colspan="2" align="center">用户注册</td>
@@ -44,16 +44,16 @@
             <tr>
                 <td>用户名：</td><td><input type="text" name="username"></td>
             </tr>
-            <tr>
-                <td>电&nbsp;&nbsp;&nbsp;&nbsp;话：</td><td><input type="text" name="phonenumber"></td>
-            </tr>
+            <%--<tr>--%>
+                <%--<td>电话：</td><td><input type="text" name="phonenumber"></td>--%>
+            <%--</tr>--%>
             <tr>
                 <td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="password"></td>
             </tr>
             <tr>
                 <td>性&nbsp;&nbsp;&nbsp;&nbsp;别：</td>
-                <td>男<input type="radio" name="sex" value="male">&nbsp;&nbsp;&nbsp;&nbsp;
-                    女<input type="radio" name="sex" value="female"></td>
+                <td>男<input type="radio" name="gender" value="male">&nbsp;&nbsp;&nbsp;&nbsp;
+                    女<input type="radio" name="gender" value="female"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">

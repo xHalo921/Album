@@ -3,6 +3,7 @@ package njnu15.bean;
 public class User {
     private String UserId;
     private String Password;
+    private String gender;
     private boolean Permission;
 
     public String getUserId(){
@@ -27,5 +28,13 @@ public class User {
 
     public void setPermission(boolean permission) {
         Permission = permission;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
