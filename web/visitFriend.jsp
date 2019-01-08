@@ -48,5 +48,6 @@
     </table>
 </div>
 <%  } %>
+<td><a href="myFriends.jsp?result">返回好友列表</a></td>
 </body>
 </html>

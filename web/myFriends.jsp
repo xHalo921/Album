@@ -28,6 +28,7 @@
     <base href="<%=basePath%>">
 </head>
 <body>
+点击好友名进入好友相簿</br>
 <%
     User user=(User)request.getSession().getAttribute("user");
     System.out.println("visit:"+user.getUserId());
@@ -37,12 +38,12 @@
     for (String friendId:list) {
 %>
 <td><a href="visitFriend.jsp?friendId=<%=friendId%>"><%=friendId%></a></td>
+<td><a href="njnu15/servlet/delFriend?friendId=<%=friendId%>">删除好友</a></td>
 <%}%>
 <form action="njnu15/servlet/addFriend" method="post">
-    <td>好友名：</td><td><input type="text" name="friendId"></td>
+    <td>要添加好友名：</td><td><input type="text" name="friendId"></td>
     <input type="submit" value="添加"/>
 </form>
-<td><a href="myFriends.jsp">删除好友</a></td>
-
+<td><a href="albumManagement.jsp">返回相簿</a></td>
 </body>
 </html>

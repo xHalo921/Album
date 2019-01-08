@@ -57,6 +57,18 @@
         <servlet-class>njnu15.servlet.delAlbum</servlet-class>
     </servlet>
 
+    <servlet>
+        <description>addFriend</description>
+        <servlet-name>addFriend</servlet-name>
+        <servlet-class>njnu15.servlet.addFriend</servlet-class>
+    </servlet>
+
+    <servlet>
+        <description>delFriend</description>
+        <servlet-name>delFriend</servlet-name>
+        <servlet-class>njnu15.servlet.delFriend</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/njnu15/servlet/LoginServlet</url-pattern>
@@ -100,6 +112,16 @@
     <servlet-mapping>
         <servlet-name>delAlbum</servlet-name>
         <url-pattern>/njnu15/servlet/delAlbum</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>addFriend</servlet-name>
+        <url-pattern>/njnu15/servlet/addFriend</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>delFriend</servlet-name>
+        <url-pattern>/njnu15/servlet/delFriend</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

@@ -36,7 +36,7 @@
     <table border="0" cellspacing="10" cellpadding ="10"  align="center" style="border-collapse:separate; border-spacing:10px 10px;">
         <tr>
             <td><a href="createAlbum.jsp">创建相册</a></td>
-            <td><a href="myFriends.jsp">查看好友</a></td>
+            <td><a href="myFriends.jsp?result">查看好友</a></td>
             <td><a href="login.jsp">退出登录</a></td>
         </tr>
     </table>

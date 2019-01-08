@@ -15,7 +15,18 @@ public class addFriend extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         String friendId=request.getParameter("friendId");
         User user=(User)request.getSession().getAttribute("user");
-        DAO.addFriend(friendId,user.getUserId());
-        request.getRequestDispatcher("/myFriends.jsp?result=添加成功").forward(request,response);
+        int state = DAO.addFriend(friendId,user.getUserId());
+        String s;
+        switch (state){
+            case -1:
+                s="该用户不存在";
+                break;
+            case 0:
+                s="你们已经是好友啦";
+                break;
+            default:
+                s="添加成功";
+        }
+        request.getRequestDispatcher("/myFriends.jsp?result="+s).forward(request,response);
     }
 }

@@ -2,10 +2,7 @@ package njnu15.tool;
 
 import njnu15.bean.*;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -179,9 +176,24 @@ public class DAO {
         updateSql(sql);
     }
 
-    public static void addFriend(String friendId,String userId){
-        String sql="insert Into friends Values('"+userId+"','"+friendId+"')";
+    public static int addFriend(String friendId,String userId){
+        String sql="SELECT* FROM user WHERE User='"+friendId+"'";
+        String sql2="SELECT* FROM friends WHERE User='"+userId+"' AND FriendId='"+friendId+"'";
+        try {
+            ResultSet rs = exeSql(sql);
+            if (!rs.next()){
+                return -1;
+            }
+            rs = exeSql(sql2);
+            if (rs.next()){
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        sql="insert Into friends Values('"+userId+"','"+friendId+"')";
         updateSql(sql);
+        return 1;
     }
 
     public static void delAlbum(int albumId){
@@ -196,6 +208,12 @@ public class DAO {
 
     public static void delComment(int commentId){
         String sql="DELETE FROM discuss WHERE CommentId='"+ commentId +"'";
+        updateSql(sql);
+    }
+
+    public static void delFriend(String friendId,String userId){
+        String sql="DELETE FROM friends WHERE User='"+userId+"' AND FriendId='"+friendId+"'";
+        System.out.println(sql);
         updateSql(sql);
     }
 }
