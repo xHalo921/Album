@@ -59,8 +59,8 @@ ${path}
 <div class="photo">
     <img src="/image/<%=pname%>" width="200" height="200" alt="照片"/></br>
     <table>
-        <tr><a>照片名称:</a><td><%=photo.getPhotoName() %></td></tr>
-        <tr><a>照片上传时间:</a><td><%=photo.getUploadTime() %></td></tr>
+        <tr><td>照片名称:</td><td><%=photo.getPhotoName() %></td></tr>
+        <tr><td>上传时间:</td><td><%=photo.getUploadTime() %></td></tr>
         <tr>
             <td><a href="showPhoto.jsp?pid=<%=photo.getPhotoId() %>&pname=<%=photo.getPhotoName()%>&isMaster=true">查看</a></td>
             <%--<td><a href="comments.jsp?pid=<%=photo.getPhotoId() %>">评论</a></td>--%>

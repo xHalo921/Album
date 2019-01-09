@@ -19,7 +19,7 @@
         #back{
             position:absolute;
             left:400px;
-            top:0px;
+            top:8px;
         }
     </style>
 </head>
@@ -28,7 +28,7 @@
 <%
     User user=(User)request.getSession().getAttribute("user");
 %>
-<div style="text-align:center">当前用户：<%=user.getUserId()%> </div>
+<div >当前用户：<%=user.getUserId()%> </div></br>
 
     <div>
         <%

@@ -23,6 +23,11 @@
             float:left;
             margin:20px;
         }
+        #back{
+            position: absolute;
+            top:28px;
+            left:300px;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +39,7 @@
     mater.setUserId(friendId);
 %>
 <div>当前用户：<%=user.getUserId()%> </div>
+<div id="back"><a href="myFriends.jsp?result">返回好友列表</a></div>
 <%
     List<Album> list=DAO.findAllAlbum(mater);
     for(Album album:list){
@@ -48,6 +54,6 @@
     </table>
 </div>
 <%  } %>
-<td><a href="myFriends.jsp?result">返回好友列表</a></td>
+<td></td>
 </body>
 </html>

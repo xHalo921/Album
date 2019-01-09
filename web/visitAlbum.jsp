@@ -23,8 +23,8 @@
         }
         #back{
             position:absolute;
-            left:500px;
-            top:28px;
+            left:300px;
+            top:8px;
         }
     </style>
 </head>
@@ -34,6 +34,7 @@
     int aid=Integer.parseInt(request.getParameter("albumId"));
 %>
 <div>当前用户：<%=user.getUserId()%> </div>
+<div id="back"><a href="myFriends.jsp?result">返回好友列表</a></div>
 ${path}
 <%
     List<Photo> list= DAO.findAllPhoto(aid);
@@ -52,6 +53,5 @@ ${path}
     </table>
 </div>
 <% } %>
-<td><a href="myFriends.jsp?result">返回好友列表</a></td>
 </body>
 </html>

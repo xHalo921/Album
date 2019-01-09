@@ -161,7 +161,7 @@ public class DAO {
     }
 
     public static void addUser(User user){
-        String sql = "Insert into user values('" + user.getUserId()+ "','" + user.getPassword() + "','"+ user.getGender() + "')";
+        String sql = "Insert into user(User,Password,gender) values('" + user.getUserId()+ "','" + user.getPassword() + "','"+ user.getGender() + "')";
         updateSql(sql);
     }
 
