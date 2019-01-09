@@ -78,7 +78,7 @@ public class UpLoadPic extends HttpServlet {
                     String newfilename = tempFile.getName();
                     String nameforsql=newfilename;
 
-                    System.out.println("filename:"+filename);
+                    //System.out.println("filename:"+filename);
                     String time = String.valueOf(new Date().getTime());
                     // newfilename="p81217";//filename.substring(0,filename.indexOf("."));
 
@@ -86,7 +86,7 @@ public class UpLoadPic extends HttpServlet {
                     newfilename=newfilename;//+fileitem;
                     realpath="D:/images/";
                     newfilename=realpath+newfilename;
-                    System.out.println("newfilename1:"+newfilename);
+                    //System.out.println("newfilename1:"+newfilename);
                     int filestart=strcontent.indexOf("\n",typestart)+1;
                     filestart=strcontent.indexOf("\n",filestart)+1;
                     int intboundary=contentType.indexOf("boundary=")+10;
@@ -97,7 +97,7 @@ public class UpLoadPic extends HttpServlet {
                     int contentend=strcontent.substring(0,fileend).getBytes().length;
                     //System.out.println(saveFile);
                     File myfile=new File(realpath);
-                    System.out.println("路径："+realpath);
+                    //System.out.println("路径："+realpath);
                     if(!myfile.exists()){
 
                         myfile.mkdirs();
@@ -110,7 +110,7 @@ public class UpLoadPic extends HttpServlet {
                     Photo pic = new Photo();
                     //pic.setPhotoId(Integer.parseInt(photoId));
                     int x= (int) request.getSession().getAttribute("AID");
-                    System.out.println("aid2："+x);
+                    //System.out.println("aid2："+x);
                     pic.setAlbumId(x);
                     //pic.setAlbumId(123);
                     pic.setPhotoName(nameforsql);

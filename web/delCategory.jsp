@@ -17,8 +17,8 @@
 </head>
 <body>
 <%
-    int CategoryId=Integer.parseInt(request.getParameter("CategoryId"));
-    AlbumCategory.delCategory(CategoryId);
+    String category=request.getParameter("categoryName");
+    AlbumCategory.delCategory(category);
 %>
 <br>删除成功</br>
 <td><a href="categoryManagement.jsp">点击返回</a></td>

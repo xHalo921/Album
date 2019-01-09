@@ -28,7 +28,7 @@ public class createAlbum extends HttpServlet {
         String date = sdf.format(d);
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql="insert Into album(AlbumName,UserId,Category,CreateTime) Values('"+aname+"','"+user.getUserId()+"','"+select+"','"+date+"')";
+            String sql="insert Into album(AlbumName,UserId,categoryName,CreateTime) Values('"+aname+"','"+user.getUserId()+"','"+select+"','"+date+"')";
             Statement stmt=conn.createStatement();
             stmt.executeUpdate(sql);
             request.getRequestDispatcher("/albumManagement.jsp").forward(request,response);

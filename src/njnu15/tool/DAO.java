@@ -39,7 +39,7 @@ public class DAO {
                 album.setAlbumId(rs.getInt("AlbumId"));
                 album.setAlbumName(rs.getString("AlbumName"));
                 album.setUserId(rs.getString("UserId"));
-                album.setCategory(rs.getString("Category"));
+                album.setCategory(rs.getString("categoryName"));
                 album.setCreateTime(rs.getDate("CreateTime"));
                 list.add(album);
             }
@@ -124,13 +124,13 @@ public class DAO {
             Connection conn= JDBCHelper.getConn();
             Statement stmt=conn.createStatement();
             if(aname!=""&&cate!=""){
-                String sql="update album set AlbumName = '"+aname+"',Category='"+cate+"' where AlbumId = '"+albumId+"'";
+                String sql="update album set AlbumName = '"+aname+"',categoryName='"+cate+"' where AlbumId = '"+albumId+"'";
                 stmt.executeUpdate(sql);
             } else if(aname!=""&&cate==""){
                 String sql="update album set AlbumName = '"+aname+"' where AlbumId = '"+albumId+"'";
                 stmt.executeUpdate(sql);
             } else if(aname==""&&cate!=""){
-                String sql="update album set Category = '"+cate+"' where AlbumId = '"+albumId+"'";
+                String sql="update album set categoryName = '"+cate+"' where AlbumId = '"+albumId+"'";
                 stmt.executeUpdate(sql);
             }
         }catch(Exception e){

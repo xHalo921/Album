@@ -22,9 +22,10 @@
 <%
     List<String> list= AlbumCategory.getAlbumCategory();
     for(int i=0;i<list.size();i++){
+        String categoryName=list.get(i);
 %>
 <div>
-    <td><%=list.get(i)%>  <a href="delCategory.jsp?CategoryId=<%=i%>">删除类别</a></td>
+    <td><%=categoryName%>  <a href="delCategory.jsp?categoryName=<%=categoryName%>">删除类别</a></td>
 </div>
 <%}%>
 <form action="njnu15/servlet/addCategory" method="post">

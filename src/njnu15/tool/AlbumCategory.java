@@ -11,11 +11,11 @@ public class AlbumCategory {
     static {
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "SELECT category FROM category";
+            String sql = "SELECT categoryName FROM category";
             Statement stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
-                list.add(rs.getString("category"));
+                list.add(rs.getString("categoryName"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class AlbumCategory {
     public static void addCategory(String s){
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "INSERT INTO category (category) VALUE('"+s+"')";
+            String sql = "INSERT INTO category (categoryName) VALUE('"+s+"')";
             Statement stmt=conn.createStatement();
             stmt.executeUpdate(sql);
         } catch (Exception e) {
@@ -37,15 +37,16 @@ public class AlbumCategory {
         list.add(s);
     }
 
-    public static void delCategory(int i){
+    public static void delCategory(String cn){
         try {
             Connection conn= JDBCHelper.getConn();
-            String sql = "DELETE FROM category WHERE id="+i;
+            String sql = "DELETE FROM category WHERE categoryName='"+cn+"'";
+            System.out.println(sql);
             Statement stmt=conn.createStatement();
             stmt.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        list.remove(i);
+        list.remove(cn);
     }
 }
